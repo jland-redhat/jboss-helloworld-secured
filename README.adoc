@@ -60,6 +60,29 @@ Is CN=localhost, OU=wildfly, O=jboss, L=Raleigh, ST=Carolina, C=US correct?
 +
 Make sure you enter your desired "hostname" for the `first and last name` field, otherwise you might run into issues while permanently accepting this certificate as an exception in some browsers. Chrome does not currently exhibit this issue.
 
+Convert keystore to PKCS12
+
+```
+keytool -importkeystore \
+    -srckeystore keystore.jks \
+    -destkeystore keystore.p12 \
+    -deststoretype PKCS12 
+```
+
+Get certificate from keystore
+```
+openssl pkcs12 -in keystore.p12  -nokeys -out cert.pem
+```
+
+Import Certificate:
+```
+sudo cp cert.pem /etc/pki/ca-trust/source/anchors/mycert.pem
+update-ca-trust
+```
+
+
+
+
 // Back Up the {productName} Standalone Server Configuration
 include::../shared-doc/back-up-server-standalone-configuration.adoc[leveloffset=+1]
 // Start the {productName} Standalone Server
