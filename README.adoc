@@ -39,7 +39,7 @@ $ cd __{jbossHomeName}__/standalone/configuration/
 +
 [source,options="nowrap"]
 ----
-$>keytool -genkey -alias mycert -keyalg RSA -sigalg MD5withRSA -keystore server.keystore -storepass secret -keypass secret -validity 9999
+$>keytool -genkey -alias mycert -keyalg RSA -sigalg MD5withRSA -keystore keystore.jks -storepass password -keypass password -validity 9999
 
 What is your first and last name?
    [Unknown]:  localhost
@@ -78,6 +78,14 @@ Import Certificate:
 ```
 sudo cp cert.pem /etc/pki/ca-trust/source/anchors/mycert.pem
 update-ca-trust
+```
+
+Getting Private Key
+
+```
+openssl pkcs12 -in keystore.p12 -out enc.pem
+openssl rsa -in <Encrypted key filename>  -out enc.key
+openssl rsa -in enc.key -out dec.key
 ```
 
 

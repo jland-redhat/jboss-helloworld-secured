@@ -5,7 +5,7 @@ embed-server --std-out=echo  --server-config=standalone-openshift.xml
 batch
 
 # Add the keystore, key manager and ssl context configuration in the elytron subsystem
-/subsystem=elytron/key-store=qsKeyStore:add(path=server.keystore,relative-to=jboss.server.config.dir,type=JKS,credential-reference={clear-text=secret})
+/subsystem=elytron/key-store=qsKeyStore:add(path=keystore.jks,relative-to=jboss.server.config.dir,type=JKS,credential-reference={clear-text=secret})
 /subsystem=elytron/key-manager=qsKeyManager:add(key-store=qsKeyStore,credential-reference={clear-text=secret})
 /subsystem=elytron/server-ssl-context=qsSSLContext:add(key-manager=qsKeyManager,protocols=[TLSv1.2])
 
