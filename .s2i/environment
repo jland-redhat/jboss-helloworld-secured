@@ -1,5 +1,5 @@
 CUSTOM_INSTALL_DIRECTORIES=extensions
-HTTPS_NAME=https
+HTTPS_NAME=default_https
 HTTPS_PASSWORD=password
 HTTPS_KEYSTORE=keystore.jks
 key=value
