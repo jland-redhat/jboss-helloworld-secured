@@ -1,5 +1,6 @@
 # Batch script to configure server side SSL in the JBoss EAP server
-
+embed-server --std-out=echo  --server-config=standalone-openshift.xml
+:whoami
 # Start batching commands
 batch
 
@@ -18,4 +19,4 @@ run-batch
 # Reload the server configuration
 reload
 
-
+quit
