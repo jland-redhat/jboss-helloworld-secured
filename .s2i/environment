@@ -1,2 +1,3 @@
 CUSTOM_INSTALL_DIRECTORIES=extensions
+HTTPS_NAME=https
 key=value

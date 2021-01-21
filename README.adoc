@@ -83,8 +83,7 @@ update-ca-trust
 Getting Private Key
 
 ```
-openssl pkcs12 -in keystore.p12 -out enc.pem
-openssl rsa -in <Encrypted key filename>  -out enc.key
+openssl pkcs12 -in keystore.p12 -out enc.key
 openssl rsa -in enc.key -out dec.key
 ```
 
